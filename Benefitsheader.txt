@@ -1,0 +1,257 @@
+<BenefitsHeader
+  benefitsLocation
+  header={[
+    {
+      benefitInfoBarSection: {
+        benefitBarTexts: [
+          'Benefit amount',
+          'Available balance'
+        ],
+        hiLabel: {
+          displayText: 'Hi',
+          renderIconLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg'
+          },
+          renderIconRemote: '/blocks/benefits-navigation/profile-icon.svg'
+        },
+        noBalanceBannerTexts: [
+          'You have no online orders remaining this period.',
+          'Check back on',
+          'or redeem in store.'
+        ],
+        signoutLabel: 'Signout'
+      },
+      flowType: 'OTCHS',
+      logoSection: {
+        cvsLogo: {
+          alt: 'cvs logo',
+          imageSrcLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/cvs-health-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/cvs-health-icon.svg'
+          },
+          imageSrcRemote: '/blocks/benefits-navigation/cvs-icon.svg'
+        },
+        links: [
+          {
+            analyticText: 'cart',
+            displayValue: 'Cart',
+            href: '/benefits/v2/checkout'
+          }
+        ],
+        otchsLogo: {
+          alt: 'otchs logo',
+          imageSrcLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/otc-logo.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/otc-logo.svg'
+          },
+          imageSrcRemote: '/blocks/benefits-navigation/otc-logo.svg'
+        },
+        searchboxPlaceholder: 'Search products by keyword or UPC'
+      },
+      marketingBannerSection: {
+        marketingBannerLink: [],
+        marketingBannerText: [
+          'Don\'t forget to use your benefit before it expires.'
+        ]
+      },
+      navigationLinks: [
+        {
+          analyticText: 'balance',
+          displayValue: 'Balance',
+          href: '/benefits/v2/dashboard',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'activity',
+          displayValue: 'Activity',
+          href: '/benefits/activity',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'shop',
+          displayValue: 'Shop',
+          href: '/benefits/v2/shop',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'store',
+          displayValue: 'Store',
+          href: '/benefits/stores',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'support',
+          displayValue: 'Support',
+          href: '/benefits/support',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'settings',
+          displayValue: 'Settings',
+          href: '/benefits/settings',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'espanol',
+          displayValue: 'Español',
+          href: 'https://es.cvs.com/benefits/account/login',
+          iconName: null,
+          loggedIn: false,
+          renderIconLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg'
+          },
+          renderIconRemote: '/blocks/benefits-navigation/globe-icon.svg'
+        }
+      ]
+    },
+    {
+      benefitInfoBarSection: {
+        benefitBarTexts: [
+          'Order total'
+        ],
+        hiLabel: {
+          displayText: 'Hi',
+          renderIconLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg'
+          },
+          renderIconRemote: '/blocks/benefits-navigation/profile-icon.svg'
+        },
+        noBalanceBannerTexts: [
+          'You have no online orders remaining this period.',
+          'Check back on',
+          'or redeem in store.'
+        ],
+        signoutLabel: 'Signout'
+      },
+      flowType: 'SOLUTRAN',
+      logoSection: null,
+      marketingBannerSection: {
+        marketingBannerLink: [
+          {
+            analyticText: 'otchs_login_page_link',
+            displayValue: 'OTCHS Login Page',
+            href: '/benefits/login'
+          }
+        ],
+        marketingBannerText: [
+          'Please make sure to activate your card before placing an order. If you are having trouble with activation, please contact the number on the back of your card. OTCHS Members please visit the'
+        ]
+      },
+      navigationLinks: [
+        {
+          analyticText: 'store',
+          displayValue: 'Store',
+          href: '/benefits/stores',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'shop',
+          displayValue: 'Shop',
+          href: '/benefits/v2/shop',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'espanol',
+          displayValue: 'Español',
+          href: 'https://es.cvs.com/benefits/account/login',
+          iconName: null,
+          loggedIn: false,
+          renderIconLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg'
+          },
+          renderIconRemote: '/blocks/benefits-navigation/globe-icon.svg'
+        }
+      ]
+    },
+    {
+      benefitInfoBarSection: {
+        benefitBarTexts: [
+          'Benefit amount',
+          'Benefit details',
+          'Order total'
+        ],
+        hiLabel: {
+          displayText: 'Hi',
+          renderIconLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg'
+          },
+          renderIconRemote: '/blocks/benefits-navigation/profile-icon.svg'
+        },
+        noBalanceBannerTexts: [
+          'You have no online orders remaining this period.',
+          'Check back on',
+          'or redeem in store.'
+        ],
+        signoutLabel: 'Signout'
+      },
+      flowType: 'INCOMM',
+      logoSection: null,
+      marketingBannerSection: {
+        marketingBannerLink: [],
+        marketingBannerText: null
+      },
+      navigationLinks: [
+        {
+          analyticText: 'store',
+          displayValue: 'Store',
+          href: '/benefits/stores',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'shop',
+          displayValue: 'Shop',
+          href: '/benefits/v2/shop',
+          iconName: null,
+          loggedIn: true,
+          renderIconLocal: null,
+          renderIconRemote: null
+        },
+        {
+          analyticText: 'espanol',
+          displayValue: 'Español',
+          href: 'https://es.cvs.com/benefits/account/login',
+          iconName: null,
+          loggedIn: false,
+          renderIconLocal: {
+            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg',
+            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg'
+          },
+          renderIconRemote: '/blocks/benefits-navigation/globe-icon.svg'
+        }
+      ]
+    }
+  ]}
+  isLoggedIn
+/>
