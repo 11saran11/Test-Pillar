@@ -1,12 +1,125 @@
+# BenefitsHeader Component Documentation
+
+This document provides a detailed overview of the `BenefitsHeader` component, including its purpose, intended audience, features, properties, and integration instructions. The `BenefitsHeader` component is designed to provide a unified and informative header section for users accessing their benefits information.
+
+## Purpose of the BenefitsHeader Component
+
+The `BenefitsHeader` component was created to address the need for a consistent and user-friendly interface across different benefits platforms. It serves as a centralized header that displays crucial information such as user benefits, navigation options, and personalized greetings. The component is designed to enhance user experience by providing easy access to various features and ensuring that important information is prominently displayed.
+
+### Intended Audience
+
+The `BenefitsHeader` component is intended for developers and teams working on benefits platforms, such as healthcare or employee benefits websites. It is particularly useful for organizations that need to integrate a comprehensive header into their applications, ensuring a consistent look and feel across different user interfaces.
+
+## Features
+
+The `BenefitsHeader` component includes the following features:
+
+- **Benefit Information Display**: Shows user-specific information such as benefit amounts, available balances, and order totals.
+- **Logo Section**: Supports displaying brand logos from both local and remote sources, enhancing brand recognition.
+- **Navigation Links**: Provides quick access to key sections of the application, such as balance, activity, shop, store locations, support, and settings.
+- **Marketing Banners**: Displays promotional messages and important notices with optional links.
+- **Multilingual Support**: Offers a link to switch the interface to Spanish, catering to a diverse user base.
+- **User Personalization**: Displays a personalized greeting and user-specific actions like signing out.
+
+## Component Props
+
+### `benefitsLocation` (Boolean)
+
+- **Description**: Determines whether the component should adjust its display based on location-specific settings. This can be used to toggle features or layouts that are relevant to specific locations or regions.
+- **Type**: `Boolean`
+- **Default**: `false`
+
+### `header` (Array of Objects)
+
+This prop is an array containing configuration objects for different header sections based on the flow type. Each object contains several nested sections:
+
+#### `benefitInfoBarSection` (Object)
+
+- **`benefitBarTexts` (Array of Strings)**: Text labels to display benefit-related information such as "Benefit amount" and "Available balance."
+- **`hiLabel` (Object)**: Contains information for displaying a personalized greeting.
+  - **`displayText` (String)**: The greeting text (e.g., "Hi").
+  - **`renderIconLocal` (Object)**: Local path and source for the profile icon.
+    - **`path` (String)**: The local path to the icon, used for server-side rendering or local environments.
+    - **`src` (String)**: The URL for the icon when accessed from a local server.
+  - **`renderIconRemote` (String)**: Remote path for the profile icon, used for CDN or remote hosting.
+- **`noBalanceBannerTexts` (Array of Strings)**: Messages displayed when there is no balance or orders remaining.
+- **`signoutLabel` (String)**: The text for the signout button, allowing users to log out of their accounts.
+
+#### `flowType` (String)
+
+- **Description**: Specifies the flow type for which the header configuration is applicable. This allows different configurations for different user flows or sections within the application.
+- **Examples**: `"OTCHS"`, `"SOLUTRAN"`, `"INCOMM"`
+
+#### `logoSection` (Object)
+
+Optional section for displaying logos and related links. It contains:
+
+- **`cvsLogo` (Object)**: Configuration for the CVS logo.
+  - **`alt` (String)**: Alt text for the logo, used for accessibility and SEO.
+  - **`imageSrcLocal` (Object)**: Local path and source for the logo.
+    - **`path` (String)**: The local path to the logo.
+    - **`src` (String)**: The URL for the logo when accessed from a local server.
+  - **`imageSrcRemote` (String)**: Remote path for the logo, used for CDN or remote hosting.
+- **`links` (Array of Objects)**: Additional links related to the logo section.
+  - **`analyticText` (String)**: Text used for analytics tracking.
+  - **`displayValue` (String)**: Display text for the link.
+  - **`href` (String)**: URL for the link.
+- **`otchsLogo` (Object)**: Configuration for the OTCHS logo, similar to `cvsLogo`.
+- **`searchboxPlaceholder` (String)**: Placeholder text for the search box, guiding users to search for products by keyword or UPC.
+
+#### `marketingBannerSection` (Object)
+
+- **`marketingBannerLink` (Array of Objects)**: Links included in the marketing banner for additional information or redirection.
+  - **`analyticText` (String)**: Text used for analytics tracking.
+  - **`displayValue` (String)**: Display text for the link.
+  - **`href` (String)**: URL for the link.
+- **`marketingBannerText` (Array of Strings)**: Text to display in the marketing banner, used for promotional messages or alerts.
+
+#### `navigationLinks` (Array of Objects)
+
+Navigation links providing access to various sections of the application:
+
+- **`analyticText` (String)**: Text used for analytics tracking.
+- **`displayValue` (String)**: Display text for the link.
+- **`href` (String)**: URL for the link.
+- **`iconName` (String or Null)**: Name of the icon to display (optional).
+- **`loggedIn` (Boolean)**: Indicates whether the link is visible to logged-in users.
+- **`renderIconLocal` (Object or Null)**: Local path and source for the icon (optional).
+- **`renderIconRemote` (String or Null)**: Remote path for the icon (optional).
+
+### `isLoggedIn` (Boolean)
+
+- **Description**: Indicates whether the user is logged in, affecting the display of user-specific information and links. This helps personalize the header experience for users based on their authentication status.
+- **Type**: `Boolean`
+- **Default**: `false`
+
+## Integration Instructions
+
+To integrate the `BenefitsHeader` component into your application, follow these steps:
+
+### 1. Import the Component
+
+First, import the `BenefitsHeader` component into your project:
+
+```javascript
+import BenefitsHeader from 'path-to-component/BenefitsHeader';
+```
+
+### 2. Configure Props
+
+Prepare the configuration data for the component. You can customize each section according to the needs of your application by providing the appropriate data structures as described above.
+
+### 3. Render the Component
+
+Render the `BenefitsHeader` component within your application's layout, passing in the configured props:
+
+```jsx
 <BenefitsHeader
-  benefitsLocation
+  benefitsLocation={true}
   header={[
     {
       benefitInfoBarSection: {
-        benefitBarTexts: [
-          'Benefit amount',
-          'Available balance'
-        ],
+        benefitBarTexts: ['Benefit amount', 'Available balance'],
         hiLabel: {
           displayText: 'Hi',
           renderIconLocal: {
@@ -52,7 +165,7 @@
       marketingBannerSection: {
         marketingBannerLink: [],
         marketingBannerText: [
-          'Don\'t forget to use your benefit before it expires.'
+          "Don't forget to use your benefit before it expires."
         ]
       },
       navigationLinks: [
@@ -65,193 +178,23 @@
           renderIconLocal: null,
           renderIconRemote: null
         },
-        {
-          analyticText: 'activity',
-          displayValue: 'Activity',
-          href: '/benefits/activity',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'shop',
-          displayValue: 'Shop',
-          href: '/benefits/v2/shop',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'store',
-          displayValue: 'Store',
-          href: '/benefits/stores',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'support',
-          displayValue: 'Support',
-          href: '/benefits/support',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'settings',
-          displayValue: 'Settings',
-          href: '/benefits/settings',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'espanol',
-          displayValue: 'Español',
-          href: 'https://es.cvs.com/benefits/account/login',
-          iconName: null,
-          loggedIn: false,
-          renderIconLocal: {
-            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg',
-            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg'
-          },
-          renderIconRemote: '/blocks/benefits-navigation/globe-icon.svg'
-        }
+        // Additional links...
       ]
     },
-    {
-      benefitInfoBarSection: {
-        benefitBarTexts: [
-          'Order total'
-        ],
-        hiLabel: {
-          displayText: 'Hi',
-          renderIconLocal: {
-            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg',
-            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg'
-          },
-          renderIconRemote: '/blocks/benefits-navigation/profile-icon.svg'
-        },
-        noBalanceBannerTexts: [
-          'You have no online orders remaining this period.',
-          'Check back on',
-          'or redeem in store.'
-        ],
-        signoutLabel: 'Signout'
-      },
-      flowType: 'SOLUTRAN',
-      logoSection: null,
-      marketingBannerSection: {
-        marketingBannerLink: [
-          {
-            analyticText: 'otchs_login_page_link',
-            displayValue: 'OTCHS Login Page',
-            href: '/benefits/login'
-          }
-        ],
-        marketingBannerText: [
-          'Please make sure to activate your card before placing an order. If you are having trouble with activation, please contact the number on the back of your card. OTCHS Members please visit the'
-        ]
-      },
-      navigationLinks: [
-        {
-          analyticText: 'store',
-          displayValue: 'Store',
-          href: '/benefits/stores',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'shop',
-          displayValue: 'Shop',
-          href: '/benefits/v2/shop',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'espanol',
-          displayValue: 'Español',
-          href: 'https://es.cvs.com/benefits/account/login',
-          iconName: null,
-          loggedIn: false,
-          renderIconLocal: {
-            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg',
-            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg'
-          },
-          renderIconRemote: '/blocks/benefits-navigation/globe-icon.svg'
-        }
-      ]
-    },
-    {
-      benefitInfoBarSection: {
-        benefitBarTexts: [
-          'Benefit amount',
-          'Benefit details',
-          'Order total'
-        ],
-        hiLabel: {
-          displayText: 'Hi',
-          renderIconLocal: {
-            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg',
-            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/profile-icon.svg'
-          },
-          renderIconRemote: '/blocks/benefits-navigation/profile-icon.svg'
-        },
-        noBalanceBannerTexts: [
-          'You have no online orders remaining this period.',
-          'Check back on',
-          'or redeem in store.'
-        ],
-        signoutLabel: 'Signout'
-      },
-      flowType: 'INCOMM',
-      logoSection: null,
-      marketingBannerSection: {
-        marketingBannerLink: [],
-        marketingBannerText: null
-      },
-      navigationLinks: [
-        {
-          analyticText: 'store',
-          displayValue: 'Store',
-          href: '/benefits/stores',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'shop',
-          displayValue: 'Shop',
-          href: '/benefits/v2/shop',
-          iconName: null,
-          loggedIn: true,
-          renderIconLocal: null,
-          renderIconRemote: null
-        },
-        {
-          analyticText: 'espanol',
-          displayValue: 'Español',
-          href: 'https://es.cvs.com/benefits/account/login',
-          iconName: null,
-          loggedIn: false,
-          renderIconLocal: {
-            path: '/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg',
-            src: 'https://cvs-stage01.adobecqms.net/content/dam/enterprise/headless/retail/otchs/en/assets/globe-icon.svg'
-          },
-          renderIconRemote: '/blocks/benefits-navigation/globe-icon.svg'
-        }
-      ]
-    }
+    // Additional header configurations...
   ]}
-  isLoggedIn
+  isLoggedIn={true}
 />
+```
+
+### 4. Ensure Styling and Assets
+
+Make sure that the necessary CSS and image assets are available in your project. The component relies on these assets to render logos and
+
+ icons correctly.
+
+### 5. Test the Component
+
+Test the component in various scenarios, such as logged-in and logged-out states, to ensure it behaves as expected. Verify that the header adapts correctly to different configurations and that all links and icons function properly.
+
+By following these steps and configuring the props appropriately, you can successfully integrate the `BenefitsHeader` component into your application. This component provides a cohesive and informative header experience for users interacting with your benefits platform, ensuring that they have access to important information and features at a glance.
